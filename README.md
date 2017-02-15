@@ -50,7 +50,7 @@ Callback example without promisse:
 ```js
 for (var i = 0; i < 10; i++) {
     setTimeout(() => {
-        console.log(i)
+        console.log(i);
     });
 }
 ```
@@ -60,11 +60,13 @@ Callback example with promisse:
 ``` js
 for (var i = 0; i < 10; i++) {
     new Promise((resolve) => {
-            setTimeout(resolve.bind(null, i));
+            resolve(i);
     }).then((number) => {
-        console.log(number);
+        setTimeout(() => {
+            console.log(number);
+        });
     });
-}
+
 ```
 The output will be: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`.
 
