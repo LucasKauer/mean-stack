@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <title>Mean Stack</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body>
+        <section id="beers" ng-controller="BeerCtrl">
+            <div class="container">
+                <div class="row">
+                    <h1>Beers</h1>
+                    <br>
+                    <form action="" class="form-inline">
+                        <div class="input-group col-xs-12">
+                            <input id="search" type="text" class="form-control" placeholder="Search for..." ng-model="search">
+                        </div>
+                    </form>
+                    <br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Appearance</th>
+                                <th>Aroma</th>
+                                <th>Flavour</th>
+                                <th>MouthFeel</th>
+                                <th>Strength</th>
+                                <th>Style</th>
+                                <th>Brewery</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="beer in beers | filter: search | orderBy: '-Brewery'">
+                                <th>{{beer.Appearance}}</th>
+                                <th>{{beer.Aroma}}</th>
+                                <th>{{beer.Flavour}}</th>
+                                <th>{{beer.MouthFeel}}</th>
+                                <th>{{beer.Strength}}</th>
+                                <th>{{beer.Style}}</th>
+                                <th>{{beer.Brewery}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <script src="components/angular/angular.js"></script>
+        <script src="components/jquery/dist/jquery.js"></script>
+        <script src="components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="javascripts/controllers/beer.js"></script>
+    </body>
+</html>
